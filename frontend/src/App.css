@@ -1,0 +1,184 @@
+/* Clean White-Theme Reset to match the exact mock image specification */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa; /* Elegant off-white background */
+  color: #212529; /* Deep charcoal text */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.white-app-root {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+}
+
+.white-app-container {
+  width: 100%;
+  max-width: 1160px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Crisp Clean Thin Title */
+.white-app-title {
+  font-size: 3.2rem;
+  font-weight: 300; /* Thin look like the generated image */
+  color: #212529;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+}
+
+/* Centered Blue-Grayish Control Console Panel */
+.white-search-panel {
+  background-color: #f1f3f5; /* Light soft gray-blue container panel */
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 780px;
+  margin: 0 auto 50px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* White Clean Dropdown Input Field */
+.white-dropdown-select {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  background-color: #ffffff;
+  color: #495057;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Elegant Sky-Blue Streamlit/Standard Action Button */
+.white-action-btn {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  background-color: #5dade2; /* Exact premium sky blue finish */
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.white-action-btn:hover {
+  background-color: #3498db;
+}
+
+.white-action-btn:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.white-error-banner {
+  color: #dc3545;
+  font-size: 0.95rem;
+  margin-top: -30px;
+  margin-bottom: 30px;
+}
+
+/* Sharp Horizontal 5-Column Layout Row */
+.white-movies-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* White Premium Structured Cards with subtle shadow borders */
+.white-movie-card {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.white-movie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.white-poster-container {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background-color: #f1f3f5;
+}
+
+.white-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fallback card frame inside the white design */
+.white-fallback-ui {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f1f3f5 0%, #e9ecef 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.white-fallback-icon {
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+}
+
+.white-fallback-meta {
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+/* Movie Meta text footer element matching the card alignment */
+.white-movie-meta-block {
+  padding: 14px 10px;
+  background-color: #ffffff;
+  border-top: 1px solid #f1f3f5;
+}
+
+.white-movie-title-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* Fluid responsive breakdown */
+@media (max-width: 850px) {
+  .white-movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .white-movies-grid {
+    grid-template-columns: 1fr;
+  }
+}
