@@ -16,7 +16,7 @@ function App() {
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
   useEffect(() => {
-    axios.get('https://movie-reccommendation-system-br49.onrender.com')
+    axios.get('https://movie-reccommendation-system-br49.onrender.com/api/movies')
       .then(res => setMovies(res.data.movies))
       .catch(err => console.error("Error fetching movies list:", err));
   }, []);
@@ -44,7 +44,7 @@ const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
     setRecommendations([]);
 
     try {
-      const res = await axios.post('https://movie-reccommendation-system-br49.onrender.com', {
+      const res = await axios.post('https://movie-reccommendation-system-br49.onrender.com/api/recommend', {
         movie: selectedMovie
       });
 
