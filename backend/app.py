@@ -1,11 +1,26 @@
+from flask_cors import CORS
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pickle
 import pandas as pd
 import numpy as np
+import os     
+import gdown
 
 app = Flask(__name__)
-CORS(app) # Isse React ko API call karte waqt CORS error nahi aayega
+CORS(app) 
+
+# Similarity Model Download Logic
+if not os.path.exists('similarity.pkl'):
+    print("Downloading similarity.pkl from Google Drive...")
+
+    gdown.download('https://drive.google.com/file/d/1wUvn7Xnx_tixXh5xd2fNYAOKDJJPjvkk/view?usp=drive_link', 'similarity.pkl', quiet=False, fuzzy=True)
+
+# Movie Dict Download Logic
+if not os.path.exists('movie_dict.pkl'):
+    print("Downloading movie_dict.pkl from Google Drive...")
+    
+    gdown.download('https://drive.google.com/file/d/17fN0kBGD0fRIeWsHKsfdhKNYXKpvnPTL/view?usp=sharing', 'movie_dict.pkl', quiet=False, fuzzy=True)
 
 # 1. Load the ML Models/Data on Server Startup
 try:
