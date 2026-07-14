@@ -25,10 +25,10 @@ const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
     if (!TMDB_API_KEY) return null;
     try {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_API_KEY}`
+        `https://corsproxy.io/?https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_API_KEY}`
       );
       const posterPath = response.data.poster_path;
-      return posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : null;
+      return posterPath ? `https://wsrv.nl/?url=image.tmdb.org/t/p/w500${posterPath}` : null;
     } catch (err) {
       return null;
     }
