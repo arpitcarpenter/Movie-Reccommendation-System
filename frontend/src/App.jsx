@@ -44,7 +44,7 @@ const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
     setRecommendations([]);
 
     try {
-      const res = await axios.post('http://127.0.0.1:5000/api/recommend', {
+      const res = await axios.post('https://movie-reccommendation-system-br49.onrender.com', {
         movie: selectedMovie
       });
 
