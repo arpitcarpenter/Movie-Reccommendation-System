@@ -14,13 +14,13 @@ CORS(app)
 if not os.path.exists('similarity.pkl'):
     print("Downloading similarity.pkl from Google Drive...")
 
-    gdown.download('https://drive.google.com/file/d/1wUvn7Xnx_tixXh5xd2fNYAOKDJJPjvkk/view?usp=drive_link', 'similarity.pkl', quiet=False, fuzzy=True)
+    gdown.download('https://drive.google.com/file/d/1wUvn7Xnx_tixXh5xd2fNYAOKDJJPjvkk/view?usp=drive_link', 'similarity.pkl', quiet=False)
 
 # Movie Dict Download Logic
 if not os.path.exists('movie_dict.pkl'):
     print("Downloading movie_dict.pkl from Google Drive...")
     
-    gdown.download('https://drive.google.com/file/d/17fN0kBGD0fRIeWsHKsfdhKNYXKpvnPTL/view?usp=sharing', 'movie_dict.pkl', quiet=False, fuzzy=True)
+    gdown.download('https://drive.google.com/file/d/17fN0kBGD0fRIeWsHKsfdhKNYXKpvnPTL/view?usp=sharing', 'movie_dict.pkl', quiet=False)
 
 # 1. Load the ML Models/Data on Server Startup
 try:
