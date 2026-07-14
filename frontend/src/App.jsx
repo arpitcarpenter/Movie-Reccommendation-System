@@ -9,15 +9,15 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Search filter handle karne ke liye naye states
+  
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  // Live posters ke liye TMDB key yahan daal sakte ho, warna premium clean fallback chalega
+
   const TMDB_API_KEY = "2c84ff3fb50db66f066668b3be97e592"; 
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/movies')
+    axios.get('https://movie-reccommendation-system-br49.onrender.com')
       .then(res => setMovies(res.data.movies))
       .catch(err => console.error("Error fetching movies list:", err));
   }, []);
@@ -87,10 +87,10 @@ function App() {
                 setSelectedMovie(value);
                 
                 if (value.trim().length > 0) {
-                  // 5,000 movies me se matching movies filter karna
+                  
                   const matches = movies.filter(movie => 
                     movie.toLowerCase().includes(value.toLowerCase())
-                  ).slice(0, 8); // Dropdown me ek baar me top 8 suggestions dikhana
+                  ).slice(0, 8); 
                   setFilteredMovies(matches);
                   setShowSuggestions(true);
                 } else {
@@ -99,7 +99,7 @@ function App() {
                 }
               }}
               onFocus={() => {
-                // Input box click karte hi agar kuch typed hai to suggestions open ho jayein
+                
                 const matches = movies.filter(movie => 
                   movie.toLowerCase().includes(selectedMovie.toLowerCase())
                 ).slice(0, 8);
@@ -107,7 +107,7 @@ function App() {
                 setShowSuggestions(true);
               }}
               onBlur={() => {
-                // Thoda sa delay taaki click event trigger hone se pehle suggestions close na ho jayein
+                
                 setTimeout(() => setShowSuggestions(false), 250);
               }}
             />
