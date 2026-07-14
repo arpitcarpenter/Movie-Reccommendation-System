@@ -13,8 +13,7 @@ function App() {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-
-  const TMDB_API_KEY = "2c84ff3fb50db66f066668b3be97e592"; 
+const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
   useEffect(() => {
     axios.get('https://movie-reccommendation-system-br49.onrender.com')
