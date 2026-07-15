@@ -6,6 +6,8 @@ import pandas as pd
 import numpy as np
 import os     
 import gdown
+from flask import Response
+import requests
 
 app = Flask(__name__)
 CORS(app) 
@@ -58,6 +60,29 @@ def get_recommendations(movie_title):
     except Exception as e:
         print(f"Error in logic: {e}")
         return None
+    
+TMDB_API_KEY = os.environ.get("TMDB_API_KEY")
+
+@app.route('/api/poster/<int:movie_id>', methods=['GET'])
+def get_poster(movie_id):
+    try:
+    
+        url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={TMDB_API_KEY}"
+        res = requests.get(url)
+        data = res.json()
+        poster_path = data.get('poster_path')
+
+        if not poster_path:
+            return jsonify({'error': 'Poster not found'}), 404
+
+        
+        image_url = f"https://image.tmdb.org/t/p/w500{poster_path}"
+        img_res = requests.get(image_url)
+
+        
+        return Response(img_res.content, mimetype='image/jpeg')
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 # 3. API Endpoint: Get list of all movies for search dropdown
 @app.route('/api/movies', methods=['GET'])
